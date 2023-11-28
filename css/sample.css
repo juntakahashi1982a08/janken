@@ -1,0 +1,99 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+main{
+    border-bottom:1px solid #ccc;
+}
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+p{
+    font-size:200%;
+    text-align: center;
+    border-bottom:1px solid #fff;
+    height:200px;
+}
+ul{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+li{
+    text-align: center;
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+li:hover{
+    background: #0066CC;
+    color:#fff;
+}
+
+#hands_type{
+    border-collapse:separate;
+    border-spacing: 20px 0;
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#my_hands{
+    border-collapse:separate;
+    border-spacing: 40px 0;
+    width:800px;
+    margin-left:auto;
+    margin-right:auto;
+    cursor: pointer;
+}
+
+#gu_btn.click{
+    border-color:red;
+    border-width:7px;
+}
+
+#cho_btn.click{
+    border-color:red;
+    border-width:7px;
+}
+
+#par_btn.click{
+    border-color:red;
+    border-width:7px;
+}
+
+#name{
+    text-align: center;
+    border:solid 10px;
+    padding:10px;
+    width:400px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:blue;
+    color:white;
+}
+
+#judgement{
+    text-align: center;
+    font-size:100px;
+    color:red;
+}
+/* 負けとあいこの色変えたい -- 同じ文字列は同じ色 で表示 */
+
+#pc_hands{
+    text-align:center;
+    border-color:red;
+    border-width:7px;
+}

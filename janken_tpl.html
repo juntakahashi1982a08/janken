@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>じゃんけん</title>
+</head>
+<body>
+
+<header>
+  <h1>じゃんけん</h1>
+</header>
+
+<main>
+  <div id="name">種類の選択</div><br>
+  <ul id="hands_type">
+    <li id="hand">拳</li>
+    <li id="creature">虫</li>
+    <li id="fox">狐</li>
+    <li id="emperor">皇帝</li>
+    <li id="pokemon">ポケモン</li>
+    <!-- プルダウンリストにしたい → jsのon指示は -->
+  </ul><br>
+  <div id="name">あなた</div><br>
+  <ul id="my_hands">
+    <li id="gu_btn"><img src="gu.jpg" height=100px width=100px></li>
+    <li id="cho_btn"><img src="cho.png" height=100px width=100px></li>
+    <li id="par_btn"><img src="par.png" height=100px width=100px></li>
+  </ul>
+ <!-- 押したボタンを下に表示させ、コンピュータの手と並べたい  -->
+ <!-- もしくは、押したボタンを白抜きにするか縁取りするか目立たせたい -->
+  <div>
+    <div id="name">コンピュータ</div><br>
+    <div id="pc_hands">手</div>
+    <!-- 元々span。liにするか-->
+  </div>
+  <div id="name">勝敗</div><br>
+  <div id="judgement">勝敗</div>
+</main>
+
+<footer></footer>
+<script>
+$("#gu_btn").on("click",function() {
+        $(this).toggleClass("click");
+});
+
+$("#cho_btn").on("click",function() {
+        $(this).toggleClass("click");
+});
+
+$("#par_btn").on("click",function() {
+        $(this).toggleClass("click");
+});
+
+// 単一選択になっていない。radio
+
+$("#hand").on("click",function(){
+$("#gu_btn").html('<img src="gu.jpg" height=100px width=100px>');
+$("#cho_btn").html('<img src="cho.png" height=100px width=100px>');
+$("#par_btn").html('<img src="par.png" height=100px width=100px>');
+
+// コード短くできる。styleでの場合分け不要
+
+$("#gu_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="gu.jpg" height=100px width=100px>';
+  // ""#gu_btn"に表示されているtext,img"を表示させたい -- コード短くできる。styleでの場合分け不要
+  view2 = 'あいこ';
+  // 勝敗を式で表現したい -- コード短くできる
+}
+if(r == 2){
+  view = '<img src="cho.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 3){
+  view = '<img src="par.png" height=100px width=100px>';
+  view2 = '負け';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#cho_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="gu.jpg" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 2){
+  view = '<img src="cho.png" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 3){
+  view = '<img src="par.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#par_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="gu.jpg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 2){
+  view = '<img src="cho.png" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 3){
+  view = '<img src="par.png" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+});
+
+$("#creature").on("click",function(){
+$("#gu_btn").html('<img src="hebi.png" height=100px width=100px>');
+$("#cho_btn").html('<img src="kaeru.jpg" height=100px width=100px>');
+$("#par_btn").html('<img src="namekuji.png" height=100px width=100px>');
+
+$("#gu_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="hebi.png" height=100px width=100px>';
+  view2 = 'あいこ';
+ }
+if(r == 2){
+  view = '<img src="kaeru.jpg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 3){
+  view = '<img src="namekuji.png" height=100px width=100px>';
+  view2 = '負け';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#cho_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="hebi.png" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 2){
+  view = '<img src="kaeru.jpg" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 3){
+  view = '<img src="namekuji.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#par_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="hebi.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 2){
+  view = '<img src="kaeru.jpg" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 3){
+  view = '<img src="namekuji.png" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+});
+
+$("#fox").on("click",function(){
+$("#gu_btn").html('<img src="fox.png" height=100px width=100px>');
+$("#cho_btn").html('<img src="shouya.jpeg" height=100px width=100px>');
+$("#par_btn").html('<img src="ryousi.png" height=100px width=100px>');
+
+$("#gu_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="fox.png" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 2){
+  view = '<img src="shouya.jpeg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 3){
+  view = '<img src="ryousi.png" height=100px width=100px>';
+  view2 = '負け';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#cho_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="fox.png" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 2){
+  view = '<img src="shouya.jpeg" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 3){
+  view = '<img src="ryousi.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#par_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="fox.png" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 2){
+  view = '<img src="shouya.jpeg" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 3){
+  view = '<img src="ryousi.png" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+});
+
+$("#emperor").on("click",function(){
+$("#gu_btn").html('<img src="koutei.jpeg" height=100px width=100px>');
+$("#cho_btn").html('<img src="simin.jpeg" height=100px width=100px>');
+$("#par_btn").html('<img src="dorei.jpeg" height=100px width=100px>');
+
+$("#gu_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="koutei.jpeg" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 2){
+  view = '<img src="simin.jpeg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 3){
+  view = '<img src="dorei.jpeg" height=100px width=100px>';
+  view2 = '負け';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#cho_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="koutei.jpeg" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 2){
+  view = '<img src="simin.jpeg" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 3){
+  view = '<img src="dorei.jpeg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#par_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="koutei.jpeg" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 2){
+  view = '<img src="simin.jpeg" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 3){
+  view = '<img src="dorei.jpeg" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+});
+
+$("#pokemon").on("click",function(){
+$("#gu_btn").html('<img src="honoo.gif" height=100px width=100px>');
+$("#cho_btn").html('<img src="kusa.webp" height=100px width=100px>');
+$("#par_btn").html('<img src="mizu.webp" height=100px width=100px>');
+
+$("#gu_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="honoo.gif" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 2){
+  view = '<img src="kusa.webp" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 3){
+  view = '<img src="mizu.webp" height=100px width=100px>';
+  view2 = '負け';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#cho_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="honoo.gif" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 2){
+  view = '<img src="kusa.webp" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+if(r == 3){
+  view = '<img src="mizu.webp" height=100px width=100px>';
+  view2 = '勝ち';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+
+$("#par_btn").on("click",function(){
+const r = Math.ceil(Math.random()*3);
+let view = "";
+if(r == 1){
+  view = '<img src="honoo.gif" height=100px width=100px>';
+  view2 = '勝ち';
+}
+if(r == 2){
+  view = '<img src="kusa.webp" height=100px width=100px>';
+  view2 = '負け';
+}
+if(r == 3){
+  view = '<img src="mizu.webp" height=100px width=100px>';
+  view2 = 'あいこ';
+}
+$("#pc_hands").html(view);
+$("#judgement").html(view2);
+  });
+});
+
+// 勝ち数count蓄積
+
+//じゃんけん用のSCRIPTを書いてください
+
+</script>
+</body>
+</html>
